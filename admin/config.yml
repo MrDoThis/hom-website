@@ -1,0 +1,59 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - name: "gallery"
+        label: "Gallery Items"
+        file: "content/gallery.json"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.type}}: {{fields.title}}"
+            fields:
+              - { label: "Type", name: "type", widget: "select", options: ["image", "video"], default: "image" }
+              - { label: "Image (for photos)", name: "src", widget: "image", required: false }
+              - { label: "Video link (YouTube or Vimeo, for videos)", name: "url", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Caption", name: "caption", widget: "string", required: false }
+
+  - name: "blog"
+    label: "Blog"
+    files:
+      - name: "blog"
+        label: "Blog Posts"
+        file: "content/blog.json"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - { label: "Full text (blank line = new paragraph)", name: "body", widget: "text", required: false }
+
+  - name: "books"
+    label: "Publications"
+    files:
+      - name: "books"
+        label: "Books & Manuals"
+        file: "content/books.json"
+        fields:
+          - label: "Books"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Purchase / download link", name: "link", widget: "string", required: false }

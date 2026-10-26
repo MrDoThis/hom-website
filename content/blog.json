@@ -1,0 +1,11 @@
+{
+  "posts": [
+    {
+      "title": "Welcome to the Household of Missions Blog",
+      "date": "2026-10-26T12:00:00.000Z",
+      "image": "",
+      "summary": "Updates, teachings and reports from the mission field will be shared here.",
+      "body": "This is a sample post. Edit or delete it from the admin panel at /admin/.\n\nAdd new posts with a title, date, optional image, short summary and full text."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "items": [
+    { "type": "image", "src": "assets/gallery.jpeg", "url": "", "title": "Ministry Overview & Outpost", "caption": "Household of Missions field engagement overview." },
+    { "type": "image", "src": "assets/gallery1.jpeg", "url": "", "title": "Field Evangelism", "caption": "Indigenous community outreach and outreach work." },
+    { "type": "image", "src": "assets/gallery2.jpeg", "url": "", "title": "Discipleship Session", "caption": "Interactive discipleship and spiritual formation." },
+    { "type": "image", "src": "assets/gallery3.jpeg", "url": "", "title": "Leadership Convocation", "caption": "Gathering of mission workers and church leaders." },
+    { "type": "image", "src": "assets/gallery4.jpeg", "url": "", "title": "Grassroots Engagement", "caption": "Community outreach and holistic ministry." },
+    { "type": "image", "src": "assets/gallery5.jpeg", "url": "", "title": "Cross-Cultural Mission", "caption": "Mission deployment across West Africa." },
+    { "type": "image", "src": "assets/gallery6.jpeg", "url": "", "title": "GMDP Training Class", "caption": "Global Missions Discipleship Panorama intensive." },
+    { "type": "image", "src": "assets/gallery7.jpeg", "url": "", "title": "Gatekeepers Network", "caption": "Intercession and spiritual vigilance retreat." },
+    { "type": "image", "src": "assets/gallery8.jpeg", "url": "", "title": "Worker Ordination", "caption": "Equipping and sending indigenous workers." },
+    { "type": "image", "src": "assets/gallery9.jpeg", "url": "", "title": "Diamond Jubilee Legacy", "caption": "Celebrating sixty years of grace and leadership." }
+  ]
+}
