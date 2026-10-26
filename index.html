@@ -49,8 +49,11 @@
     .btn-outline:hover { border-color: var(--gold-400); }
 
     /* HERO */
-    .hero { position: relative; padding: 110px 0 90px; background: radial-gradient(ellipse at 80% 20%, rgba(217,169,86,.18), transparent 55%), linear-gradient(180deg, var(--navy-950), var(--navy-900)); }
-    .hero .section-shell { padding-top: 40px; padding-bottom: 40px; }
+    /* To replace the hero photo later, change the URL on the next line (or overwrite assets/gallery6.jpeg) */
+    .hero { --hero-img: url('assets/gallery6.jpeg'); position: relative; display: flex; align-items: center; min-height: 88vh; padding: 130px 0 110px;
+      background: linear-gradient(90deg, rgba(5,14,23,.93) 0%, rgba(5,14,23,.72) 50%, rgba(5,14,23,.35) 100%), linear-gradient(180deg, transparent 75%, var(--navy-900) 100%), var(--hero-img) center / cover no-repeat; }
+    .hero .section-shell { width: 100%; padding-top: 40px; padding-bottom: 40px; }
+    .hero .lead { color: #d5dde4; }
     .hero-btns { display: flex; gap: 16px; margin-top: 30px; flex-wrap: wrap; }
     .scripture { margin-top: 50px; padding-left: 18px; border-left: 2px solid var(--gold-500); color: var(--gold-300); font-family: var(--font-display); font-style: italic; max-width: 560px; }
     .scripture small { display: block; color: var(--text-muted); font-style: normal; font-family: var(--font-body); margin-top: 4px; }
@@ -109,6 +112,23 @@
     .cta-band { text-align: center; background: linear-gradient(135deg, var(--navy-700), var(--navy-850)); border-top: 1px solid var(--border-light); }
     .cta-band h2 { margin-bottom: 14px; }
     .cta-band .lead { margin: 0 auto 28px; }
+    .cta-band { text-align: left; }
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 50px; align-items: start; }
+    .cta-band .contact-wrap .lead { margin: 0 0 24px; }
+    .contact-line { display: block; color: var(--ivory); text-decoration: none; font-size: 1.05rem; margin-bottom: 8px; }
+    .contact-line span { display: inline-block; min-width: 70px; color: var(--gold-400); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+    .contact-line:hover { color: var(--gold-300); }
+    .contact-form { background: var(--navy-950); border: 1px solid var(--border-light); border-radius: 6px; padding: 30px; display: grid; gap: 16px; }
+    .contact-form label { display: grid; gap: 6px; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 12px 14px; background: var(--navy-850); border: 1px solid var(--border-light); border-radius: 3px; color: var(--text-light); font: inherit; font-size: .95rem; text-transform: none; letter-spacing: 0; font-weight: 400; }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold-400); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-status { font-size: .9rem; margin: 0; min-height: 1.4em; }
+    .form-status.ok { color: #8fd19e; } .form-status.err { color: #f2a0a0; }
+    .order-note { margin-top: 18px; padding: 16px 20px; border: 1px solid var(--border-light); border-left: 3px solid var(--gold-500); background: var(--navy-850); border-radius: 4px; color: var(--text-light); display: inline-block; }
+    .order-note a { color: var(--gold-400); font-weight: 700; text-decoration: none; }
+    .book-card .order-links { display: flex; flex-wrap: wrap; gap: 14px; }
+    @media (max-width: 900px) { .contact-wrap, .form-row { grid-template-columns: 1fr; } }
 
     footer { text-align: center; padding: 40px var(--gutter); border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: .8rem; }
 
@@ -219,11 +239,36 @@
 
     <div class="cta-band" id="contact">
       <div class="section-shell">
-        <div class="eyebrow">Join the Mission</div>
-        <h2>The call is ours. Will you answer?</h2>
-        <p class="lead">Partner with us in prayer, giving, training or going. Reach out and we will respond.</p>
-        <!-- Replace with your real email / WhatsApp link -->
-        <a href="mailto:info@example.org" class="btn btn-gold">Get in Touch</a>
+        <div class="contact-wrap">
+          <div>
+            <div class="eyebrow">Join the Mission</div>
+            <h2>The call is ours. Will you answer?</h2>
+            <p class="lead">Partner with us in prayer, giving, training or going. You can also order our books through the phone or email below. Send a message and we will respond.</p>
+            <a class="contact-line" href="tel:+2348034128947"><span>Phone</span>+234 803 412 8947</a>
+            <a class="contact-line" href="https://wa.me/2348034128947" target="_blank" rel="noopener"><span>WhatsApp</span>+234 803 412 8947</a>
+            <a class="contact-line" href="mailto:householdofmission@gmail.com"><span>Email</span>householdofmission@gmail.com</a>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="form-row">
+              <label>Full name<input type="text" name="name" required></label>
+              <label>Phone / WhatsApp<input type="tel" name="phone"></label>
+            </div>
+            <label>Email<input type="email" name="email" required></label>
+            <label>Reason for contact
+              <select name="subject">
+                <option>General enquiry</option>
+                <option>Order books</option>
+                <option>Partner / support the mission</option>
+                <option>Training / discipleship</option>
+                <option>Invite for ministry</option>
+              </select>
+            </label>
+            <label>Message<textarea name="message" rows="5" required></textarea></label>
+            <button type="submit" class="btn btn-gold" id="form-btn">Send Message</button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -253,6 +298,7 @@
       <div class="eyebrow">Literary Contributions</div>
       <h1 style="margin-top:10px;">Publications &amp; Manuals</h1>
       <p class="lead">Books, discipleship series, and training manuals authored by Apostle Kehinde Olaoluwa Oladapo.</p>
+      <div class="order-note">To order, call <a href="tel:+2348034128947">+234 803 412 8947</a> or email <a href="mailto:householdofmission@gmail.com?subject=Book%20order">householdofmission@gmail.com</a>.</div>
       <div class="books-grid" id="books-container"></div>
     </div>
   </section>
@@ -278,6 +324,7 @@
   </section>
 
   <footer>
+    <p><a href="tel:+2348034128947" style="color:inherit;">+234 803 412 8947</a> · <a href="mailto:householdofmission@gmail.com" style="color:inherit;">householdofmission@gmail.com</a></p>
     <p>&copy; 2026 Household of Missions Inc. All rights reserved. | ONE MANDATE. EVERY NATION.</p>
   </footer>
 
@@ -345,7 +392,11 @@
 
     function bookCard(b) {
       return `<div class="book-card"><div><h3>${esc(b.title)}</h3><p>${esc(b.description)}</p></div>
-        ${b.link ? `<a href="${esc(b.link)}" target="_blank" rel="noopener">Get this book &rarr;</a>` : ''}</div>`;
+        <div class="order-links">
+          ${b.link ? `<a href="${esc(b.link)}" target="_blank" rel="noopener">Get this book &rarr;</a>` : ''}
+          <a href="https://wa.me/2348034128947?text=${encodeURIComponent('Hello, I would like to order: ' + b.title)}" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <a href="mailto:householdofmission@gmail.com?subject=${encodeURIComponent('Book order: ' + b.title)}">Order by email</a>
+        </div></div>`;
     }
     function renderBooks(books) {
       document.getElementById('books-container').innerHTML = books.length ? books.map(bookCard).join('') : '<p class="empty">No publications yet.</p>';
@@ -376,6 +427,33 @@
       renderGallery(gallery);
       renderBooks(books);
       renderPosts(posts);
+    });
+
+    // Contact form -> emailed to householdofmission@gmail.com via FormSubmit
+    document.getElementById('contact-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const form = e.target, btn = document.getElementById('form-btn'), status = document.getElementById('form-status');
+      btn.disabled = true; btn.textContent = 'Sending…'; status.className = 'form-status'; status.textContent = '';
+      const data = Object.fromEntries(new FormData(form));
+      data._subject = 'Website enquiry: ' + data.subject;
+      data._template = 'table';
+      data._replyto = data.email;
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/householdofmission@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const out = await res.json();
+        if (!res.ok || out.success === 'false') throw new Error(out.message || 'Failed');
+        form.reset();
+        status.className = 'form-status ok';
+        status.textContent = 'Thank you. Your message has been sent and we will respond soon.';
+      } catch (err) {
+        status.className = 'form-status err';
+        status.textContent = 'Could not send. Please call +234 803 412 8947 or email householdofmission@gmail.com.';
+      }
+      btn.disabled = false; btn.textContent = 'Send Message';
     });
 
     // Netlify Identity: send invited/recovering users to the CMS
